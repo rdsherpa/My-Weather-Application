@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.Weather-title{
+  text-align: center;
+  /* insert rgb */
+background-color: blue; 
+  color: #fff;
+}
+
+.cities {
+  width: 200px;
+  padding: 50px;
+}
+
+.city-1, .city-2,
+.city-3, .city-4, 
+.city-5, .city-6,
+.city-7, .city-8,
+.city-9 {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #fff;
+  box-shadow: 0 1px 3px rgb(0,0,0,0.12), 0 1px 2px rgb(0,0,0,0.24);
+  text-align: center;
+}
+
+.cities ol:hover{
+background-color: #0099cc;
+}
+
+.City-Date {
+  background-color:orange;
+  width: 500;
+  border-radius: 10px;
+  padding: 40px;
+  margin-top: 50px;
+  float: right;
+  /* padding-left: 20px; */
+}
+
+.Forecast-5-days{
+  float: right;
+}
+
+.Forecast-5-days ul{
+  margin: 0 15px 25px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: darkslateblue;
+  color: #fff;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+
