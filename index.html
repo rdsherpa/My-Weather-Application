@@ -1,153 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./Assets/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Weather Dashboard</title>
-</head>
-<body>
-  <div class="City-Date">
-    <h1>San Diego (03/30/2021)</h1>
-    <ul>
-      <ol>
-        <span>Temp</span>
-        <span class="temp">74.01°F</span>
-      </ol>
-      <ol>
-        <span>Wind</span>
-        <span class="wind">6.67 MPH</span>
-      </ol>
-      <ol>
-        <span>Humidity</span>
-        <span class="Humidity">46%</span>
-      </ol>
-      <ol>
-        <span>UV index</span>
-        <span class="index">0.47</span>
-      </ol>
-    </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+    <div class="City-Date" id="current-weather-items">
+      <div class="One-day-Forecast" id="city-name"></div>
+      <!-- <h1>Los Angeles (10/04/2022)</h1> -->
+      <ul>
+        <li>
+          <span>Temp</span>
+          <span class="temp" id="temp"></span>
+        </li>
+        <li>
+          <span>Wind</span>
+          <span class="wind" id="wind"></span>
+        </li>
+        <li>
+          <span>Humidity</span>
+          <span class="humidity" id="humidity"></span>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="Weather">
-  <h1>Weather Dashboard</h1>
-  </div>
-  <div>
-    <h2>Search for a city:</h2>
-  </div>
-  <div class="panel">
-    <form id="locationInput">
-      <input type="text"
-      class="search-btn"
-      placeholder="Search Location">
-      <button type="submit" class="submit">
-        <i class="fas fa-search"></i>
-      </button>
-    </form>
+    <div class="Weather">
+      <h1>Weather Dashboard</h1>
+    </div>
+    <div>
+      <h2>Search for a city:</h2>
+    </div>
+    <div class="panel">
+      <form id="locationInput">
+        <input type="text" id="search-btn" placeholder="Search Location" />
+        <button type="submit" id="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
 
-    <ul class="cities">
-      <ol class="city-1">Austin</ol>
-      <ol class="city-2">Chicago</ol>
-      <ol class="city-3">New York</ol>
-      <ol class="city-4">Orlando</ol>
-      <ol class="city-5">Sanfrancisco</ol>
-      <ol class="city-6">Seattle</ol>
-      <ol class="city-7">Denver</ol>
-      <ol class="city-8">Atlanta</ol>
-      <ol class="city-9">San Diego</ol>
-    </ul>
+      <ul id="cities"></ul>
 
-    <div class="Forecast-5-days">
-      <h4>5 Days Weather Forecast:</h4>
-      <!-- day 1 -->
-    <ul class="Wather-Forecast-1">
-      <h5> 3/31/2021</h5>
-      <li>
-        <span>Temp</span>
-        <span class="Temp">73.72°F</span>
-      </li>
-      <li>
-        <span>Wind</span>
-        <span class="Wind">9.53 MPH</span>
-      </li>
-      <li>
-        <span>Humidity</span>
-        <span class="Humidity">66 %</span>
-      </li>
-    </ul>
-
-    <!-- Day 2 -->
-    <ul class="Wather-Forecast-2">
-      <h5> 4/1/2021</h5>
-      <li>
-        <span>Temp</span>
-        <span class="Temp">49.5°F</span>
-      </li>
-      <li>
-        <span>Wind</span>
-        <span class="Wind">16.24 MPH</span>
-      </li>
-      <li>
-        <span>Humidity</span>
-        <span class="Humidity">30%</span>
-      </li>
-    </ul>
-
-    <!-- Day 3 -->
-    <ul class="Wather-Forecast-3">
-      <h5> 4/2/2021</h5>
-      <li>
-        <span>Temp</span>
-        <span class="Temp">53.38°F</span>
-      </li>
-      <li>
-        <span>Wind</span>
-        <span class="Wind">64%</span>
-      </li>
-      <li>
-        <span>Humidity</span>
-        <span class="Humidity">17%</span>
-      </li>
-    </ul>
-
-    <!-- Day 4 -->
-    <ul class="Wather-Forecast-4">
-      <h5> 4/03/2021</h5>
-      <li>
-        <span>Temp</span>
-        <span class="Temp">61.38°F</span>
-      </li>
-      <li>
-        <span>Wind</span>
-        <span class="Wind">4.12 MPH</span>
-      </li>
-      <li>
-        <span>Humidity</span>
-        <span class="Humidity">20 %</span>
-      </li>
-    </ul>
-
-    <!-- Day 5 -->
-    <ul class="Wather-Forecast-5">
-      <h5> 4/4/2021</h5>
-      <li>
-        <span>Temp</span>
-        <span class="Temp">69.04°F</span>
-      </li>
-      <li>
-        <span>Wind</span>
-        <span class="Wind">4.27 MPH</span>
-      </li>
-      <li>
-        <span>Humidity</span>
-        <span class="wind">24%</span>
-      </li>
-    </ul>
-
-  </div>
-  </div>
-<script src="./Assets/script.js"></script>
-</body>
+      <div id="Forecast-5-days">
+        <h4>5 Days Weather Forecast:</h4>
+        <!-- day 1 -->
+        <!-- <ul class="Wather-Forecast-1">
+          <h5>3/31/2021</h5>
+          <li>
+            <span>Temp</span>
+            <span class="Temp" id="day1temp">73.72°F</span>
+          </li>
+          <li>
+            <span>Wind</span>
+            <span class="Wind" id="day1Wind">9.53 MPH</span>
+          </li>
+          <li>
+            <span>Humidity</span>
+            <span class="Humidity" id="day1Humidity">66 %</span>
+          </li>
+        </ul> -->
+      </div>
+    </div>
+    <script src="./Assets/script.js"></script>
+  </body>
 </html>
