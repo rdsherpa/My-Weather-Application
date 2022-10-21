@@ -2,6 +2,7 @@ var submitButtonEl = document.getElementById("submit");
 var cityNameEl = document.getElementById("city-name");
 var fiveDayForecast = document.getElementById("Forecast-5-days");
 var selectedCityEl = document.getElementById("city-header");
+var iconEl = document.getElementById("weatherIcon");
 var tempEl = document.getElementById("temp");
 var windEl = document.getElementById("wind");
 var humidityEl = document.getElementById("humidity");
@@ -110,8 +111,17 @@ function getWeather(lat, lng) {
 // weatherRetriveCordinates("Los Angeles")
 
 function displayCurrentDayForecast(forecastData) {
+  console.log(forecastData);
   cityNameEl.innerHTML = "";
-  // console.log(forecastData);
+  // iconEl.innerHTML = "";
+  var iconEl = document.createElement("img");
+  const weatherIcon = document.querySelector("#weatherIcon");
+  iconEl.setAttribute(
+    "src",
+    `https://openweathermap.org/img/w/${forecastData.list[0].weather[0].icon}.png`
+  );
+  weatherIcon.appendChild(iconEl);
+  console.log(weatherIcon);
   var h1El = document.createElement("h1");
   h1El.innerHTML =
     forecastData.city.name + " (" + forecastData.list[0].dt_txt + ")";
@@ -153,9 +163,18 @@ function buildCard(data, i) {
   var dataContainer = document.createElement("ul");
   dataContainer.setAttribute("class", "Wather-Forecast");
 
+  // weatherIcon.src = `http://openweathermap.org/img/w/${data.weather[0].icon}".png`;
+
   var forecastDate = document.createElement("h5");
   forecastDate.innerHTML = data.list[i].dt_txt;
   dataContainer.appendChild(forecastDate);
+
+  var weatherIcon = document.createElement("img");
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`
+  );
+  dataContainer.appendChild(weatherIcon);
 
   var listItemTemp = document.createElement("li");
   var tempHeader = document.createElement("span");
@@ -179,16 +198,16 @@ function buildCard(data, i) {
   listItemWind.appendChild(windData);
   dataContainer.appendChild(listItemWind);
 
-  // var listItemHumidity = document.createElement("li");
-  // var humidityHeader = document.createElement("span");
-  // humidityHeader.innerHTML = "Humidity";
-  // var humidityData = document.createElement("span");
-  // humidityData.setAttribute("class", "Humidity");
-  // humidityData.setAttribute("id", "day1Humidity");
-  // humidityData.innerHTML = data.list[i].humidity + "%";
-  // listItemHumidity.appendChild(humidityHeader);
-  // listItem.appendChild(humidity);
-  // dataContainer.append(listItemWind);
+  var listItemHumidity = document.createElement("li");
+  var humidityHeader = document.createElement("span");
+  humidityHeader.innerHTML = "Humidity";
+  var humidityData = document.createElement("span");
+  humidityData.setAttribute("class", "Humidity");
+  humidityData.setAttribute("id", "day1Humidity");
+  humidityData.innerHTML = data.list[i].main.humidity + "%";
+  listItemHumidity.appendChild(humidityHeader);
+  listItemHumidity.appendChild(humidityData);
+  dataContainer.append(listItemHumidity);
 
   document.getElementById("Forecast-5-days").appendChild(dataContainer);
 }
