@@ -113,14 +113,14 @@ function getWeather(lat, lng) {
 function displayCurrentDayForecast(forecastData) {
   console.log(forecastData);
   cityNameEl.innerHTML = "";
-  // iconEl.innerHTML = "";
-  var iconEl = document.createElement("img");
+  iconEl.innerHTML = "";
+  var imageIconEl = document.createElement("img");
   const weatherIcon = document.querySelector("#weatherIcon");
-  iconEl.setAttribute(
+  imageIconEl.setAttribute(
     "src",
     `https://openweathermap.org/img/w/${forecastData.list[0].weather[0].icon}.png`
   );
-  weatherIcon.appendChild(iconEl);
+  weatherIcon.appendChild(imageIconEl);
   console.log(weatherIcon);
   var h1El = document.createElement("h1");
   h1El.innerHTML =
